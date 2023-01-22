@@ -3,8 +3,7 @@ import socket
 
 class UDP:
 
-    def __init__(self, local_port=7500, port=0000, local_ip='127.0.0.1', ip='127.0.0.1', buffer_size=1024, size=32,
-                 timeout=0.1):
+    def __init__(self, local_port=7500, port=0000, local_ip='127.0.0.1', ip='127.0.0.1', buffer_size=1024, size=32):
         self.size = size
         self.r_data = None
         self.s_data = bytearray([0 for x in range(self.size+1)])
@@ -13,7 +12,6 @@ class UDP:
         self.local_ip = local_ip
         self.ip = ip
         self.buffer_size = buffer_size
-        self.timeout = timeout
         self.sk = socket.socket(socket.AF_INET,  # Internet
                                 socket.SOCK_DGRAM)  # UDP
         self.sk.bind((self.local_ip, self.local_port))
